@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form #meuForm= 'ngForm'>
+ <ion-item>
+   <ion-label position= 'floating'> Nome</ion-label>
+<ion-input #nome type='text'[(ngModel)]= 'pessoa.nome' name="nome" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position= 'floating'> cpf</ion-label>
+    <ion-input type='text'[(ngModel)]= 'pessoa.cpf' name="cpf" maxlength="3" required ></ion-input>
+   </ion-item>
+     <span style= 'color:red' *ngIf="nome.errors && nome.touched">
+       <ion-label [hidden]='nome.errors.required'> O nome é obrigatório!</ion-label>
+    </span>
+   <ion-button [disabled]='!meuForm.form.valid'(click)= 'salvar()' expand= 'full'>
+     salvar
+     </ion-button>
+</form>
+</ion-content>
